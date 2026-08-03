@@ -6,25 +6,17 @@ The network is trained by minimizing the PDE residual and enforcing the boundary
 
 ## Equation
 
-\[
-\frac{d^2y}{dx^2} + \pi^2 \sin(\pi x) = 0,
-\qquad x \in [-1,1]
-\]
+d²y/dx² + π² sin(πx) = 0,  x ∈ [-1, 1]
 
-with
+Boundary Conditions:
 
-\[
-y(-1)=0,\qquad y(1)=0.
-\]
+y(-1) = 0
 
-## Result
+y(1) = 0
 
-The learned solution closely matches the analytical solution,
+Analytical Solution:
 
-\[
-y(x)=\sin(\pi x).
-\]
-
+y(x) = sin(πx)
 ---
 
 *Part of the **NeuralPhysics** repository exploring Scientific Machine Learning.*
