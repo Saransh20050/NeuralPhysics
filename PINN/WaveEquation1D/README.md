@@ -8,20 +8,20 @@ This project implements a **Physics-Informed Neural Network (PINN)** in PyTorch 
 
 The one-dimensional wave equation is given by:
 
-$$ \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}, \qquad x \in [0,1], \quad t \in [0,1] $$
+$$\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}, \qquad x \in [0,1], \quad t \in [0,1]$$
 
 where:
 * $u(x,t)$ is the displacement.
 * $c = 1$ is the wave speed.
 
 #### Initial Conditions
-* **Initial Displacement:** $$ u(x,0) = \sin(\pi x) $$
-* **Initial Velocity:** $$ \frac{\partial u}{\partial t}(x,0) = 0 $$
+* **Initial Displacement:** $u(x,0) = \sin(\pi x)$
+* **Initial Velocity:** $\frac{\partial u}{\partial t}(x,0) = 0$
 
 #### Boundary Conditions
 Fixed-end boundary conditions:
-$$ u(0,t) = 0 $$
-$$ u(1,t) = 0 $$
+* $u(0,t) = 0$
+* $u(1,t) = 0$
 
 ---
 
@@ -29,7 +29,7 @@ $$ u(1,t) = 0 $$
 
 The exact analytical solution is:
 
-$$ u(x,t) = \sin(\pi x)\cos(\pi t) $$
+$$u(x,t) = \sin(\pi x)\cos(\pi t)$$
 
 ---
 
@@ -53,6 +53,3 @@ The trained PINN successfully learns the oscillatory spatio-temporal solution an
 
 Heatmap visualizations of the predicted solution, analytical solution, and absolute error are included for qualitative comparison.
 
----
-
-*Part of the **NeuralPhysics** repository exploring Scientific Machine Learning.*
