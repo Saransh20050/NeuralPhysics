@@ -39,10 +39,11 @@ Rather than treating neural networks solely as function approximators, this repo
 
 ## Current implementations:
 
-1D Poisson Equation using Physics-Informed Neural Networks
-Newtons Cooling Law using Physics-Informed Neural Networks
-Simple Harmonic Oscillator using Physics-Informed Neural Networks
-Solving coupled ODEs using Physics-Informed Neural Networks
+- 1D Poisson Equation using Physics-Informed Neural Networks
+- Newtons Cooling Law using Physics-Informed Neural Networks
+- Simple Harmonic Oscillator using Physics-Informed Neural Networks
+- Solving coupled ODEs using Physics-Informed Neural Networks
+- 1D Heat Equation - PDE
 
 
 
