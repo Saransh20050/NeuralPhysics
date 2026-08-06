@@ -1,81 +1,54 @@
-# Allen–Cahn Equation using Physics-Informed Neural Networks
+# 1D Allen–Cahn Equation using Physics-Informed Neural Networks
 
-This project implements a **Physics-Informed Neural Network (PINN)** in PyTorch to solve the one-dimensional **Allen–Cahn equation**, a nonlinear reaction–diffusion partial differential equation commonly used to model phase separation and interface dynamics in materials.
+This project implements a **Physics-Informed Neural Network (PINN)** in PyTorch to solve the one-dimensional **Allen–Cahn equation**, a non-linear reaction–diffusion partial differential equation (PDE) commonly used to model phase separation and interface dynamics in materials science.
 
-Instead of relying on labeled training data, the neural network learns the solution by minimizing the residual of the governing equation while satisfying the prescribed initial and boundary conditions.
+Instead of relying on labeled simulation data, the neural network directly learns the spatio-temporal solution by minimizing the PDE residual alongside initial and boundary condition errors.
+
+---
 
 ## Governing Equation
 
-The Allen–Cahn equation is
+The 1D Allen–Cahn equation is defined as:
 
-$$
-\frac{\partial u}{\partial t}
-=
-\epsilon^2
-\frac{\partial^2 u}{\partial x^2}
-+
-u-u^3,
-$$
+$$\frac{\partial u}{\partial t} = \epsilon^2 \frac{\partial^2 u}{\partial x^2} + u - u^3, \qquad x \in [-1, 1], \quad t \in [0, 1]$$
 
-where
+where the interfacial width parameter is set to:
 
-$$
-x \in [-1,1], \qquad
-t \in [0,1],
-$$
-
-and
-
-$$
-\epsilon = 0.1.
-$$
+$$\epsilon = 0.1$$
 
 ---
 
-## Initial Condition
+## Initial and Boundary Conditions
 
-$$
-u(x,0)=\sin(\pi x).
-$$
+### Initial Condition
+$$u(x,0) = \sin(\pi x)$$
 
----
-
-## Boundary Conditions
-
-$$
-u(-1,t)=0
-$$
-
-$$
-u(1,t)=0.
-$$
+### Boundary Conditions
+Fixed Dirichlet boundary conditions at the spatial domain endpoints:
+$$u(-1,t) = 0, \qquad u(1,t) = 0$$
 
 ---
 
 ## PINN Formulation
 
-The neural network receives both spatial and temporal coordinates as input and predicts the scalar field.
+The neural network takes spatial position $x$ and temporal coordinate $t$ as inputs and predicts the continuous scalar field $u(x,t)$:
 
-```
-Input : (x, t)
+$$\text{Input: } (x, t) \longrightarrow \text{Output: } u(x,t)$$
 
-↓
+### Objective Function
+The total loss is optimized using automatic differentiation to calculate spatial and temporal derivatives directly from the network parameters:
 
-Output : u(x,t)
-```
+$$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{physics}} + \mathcal{L}_{\text{ic}} + \mathcal{L}_{\text{bc}}$$
 
-The total training loss consists of
-
-- Physics loss from the Allen–Cahn equation
-- Initial condition loss
-- Boundary condition loss
-
-Automatic differentiation is used to compute the required spatial and temporal derivatives directly from the neural network.
+* **Physics Loss ($\mathcal{L}_{\text{physics}}$):** Minimizes the PDE residual $\left(\frac{\partial u}{\partial t} - \epsilon^2 \frac{\partial^2 u}{\partial x^2} - u + u^3\right)^2$.
+* **Initial Condition Loss ($\mathcal{L}_{\text{ic}}$):** Enforces $u(x,0) = \sin(\pi x)$.
+* **Boundary Condition Loss ($\mathcal{L}_{\text{bc}}$):** Enforces Dirichlet boundaries at $x = \pm 1$.
 
 ---
 
-## Result
+## Results
 
-The trained PINN successfully satisfies the governing equation while enforcing the prescribed initial and boundary conditions, demonstrating the application of PINNs to nonlinear reaction–diffusion systems.
+* The trained PINN successfully captures the phase separation dynamics dictated by the non-linear reaction term $u - u^3$ while upholding energy stability bounds.
+* Demonstrates the applicability of PINNs to stiff, non-linear reaction–diffusion systems without requiring traditional discretization mesh grids.
 
 ---
