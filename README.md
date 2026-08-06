@@ -44,6 +44,9 @@ Rather than treating neural networks solely as function approximators, this repo
 - Simple Harmonic Oscillator using Physics-Informed Neural Networks
 - Solving coupled ODEs using Physics-Informed Neural Networks
 - 1D Heat Equation - PDE
+- 1D Wave Equation - PDE
+- 1D Burger's Equation - PDE
+- 1D Allen Cahn Equation - PDE
 
 
 
