@@ -43,11 +43,11 @@ Rather than treating neural networks solely as function approximators, this repo
 - Newtons Cooling Law using Physics-Informed Neural Networks
 - Simple Harmonic Oscillator using Physics-Informed Neural Networks
 - Solving coupled ODEs using Physics-Informed Neural Networks
-- 1D Heat Equation - PDE
-- 1D Wave Equation - PDE
-- 1D Burger's Equation - PDE
-- 1D Allen Cahn Equation - PDE
-- NonLinear Schrodinger Equation - PDE
+- 1D Heat Equation - PDE  using Physics-Informed Neural Networks
+- 1D Wave Equation - PDE  using Physics-Informed Neural Networks
+- 1D Burger's Equation - PDE  using Physics-Informed Neural Networks
+- 1D Allen Cahn Equation - PDE  using Physics-Informed Neural Networks
+- NonLinear Schrodinger Equation - PDE  using Physics-Informed Neural Networks
 
 
 
