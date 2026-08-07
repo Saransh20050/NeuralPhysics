@@ -47,6 +47,7 @@ Rather than treating neural networks solely as function approximators, this repo
 - 1D Wave Equation - PDE
 - 1D Burger's Equation - PDE
 - 1D Allen Cahn Equation - PDE
+- NonLinear Schrodinger Equation - PDE
 
 
 
